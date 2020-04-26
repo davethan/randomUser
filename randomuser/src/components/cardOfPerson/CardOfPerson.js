@@ -13,6 +13,14 @@ import Typography from '@material-ui/core/Typography';
 
 import useStyles from './Style.js';
 
+function MonthInLetters(number){
+  const months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+  if (number[0]=='0'){number = number[1];}
+  number--;
+  number = months[number];
+  return number;
+}
+
 
 export default function CardOfPerson(props) {
   const classes = useStyles();
@@ -23,12 +31,19 @@ export default function CardOfPerson(props) {
     setExpanded(!expanded);
   };
 
+  const sequenceOfBirth = props.props.dob.date;
+  const yearOfBirth = sequenceOfBirth.substr(0,4);
+  let monthOfBirth = sequenceOfBirth.substr(5,2);
+  const dayOfBirth = sequenceOfBirth.substr(8,2);
+
+  monthOfBirth = MonthInLetters(monthOfBirth);
+
   return (
     <Card className={classes.root}>
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            R
+            {props.props.name.first[0]}
           </Avatar>
         }
         action={
@@ -36,7 +51,7 @@ export default function CardOfPerson(props) {
           </IconButton>
         }
         title={props.props.name.title + " " + props.props.name.first + " " + props.props.name.last}
-        subheader="September 14, 2016"
+        subheader={dayOfBirth + " " + monthOfBirth + " " + yearOfBirth + " (" + props.props.dob.age+ ")"}
       />
       <CardMedia
         className={classes.media}
