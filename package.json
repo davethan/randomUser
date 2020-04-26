@@ -1,0 +1,19 @@
+{
+  "name": "randomuser",
+  "version": "1.0.0",
+  "description": "Data from https://api.randomuser.me/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davethan/randomUser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davethan/randomUser/issues"
+  },
+  "homepage": "https://github.com/davethan/randomUser#readme"
+}
