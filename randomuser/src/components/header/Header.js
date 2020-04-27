@@ -34,7 +34,7 @@ export default function HideAppBar() {
       <HideOnScroll>
         <AppBar className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
-              <h2 className={classes.h2}>Random Person</h2>
+              <h2 className={classes.h2}>Random user</h2>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
