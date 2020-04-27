@@ -3,16 +3,18 @@ import CircularIndeterminate from "../Loading.js";
 import styles from "./Style.js";
 import { withStyles } from '@material-ui/styles';
 import CardOfPerson from '../cardOfPerson/CardOfPerson';
+import Button from '@material-ui/core/Button';
 
 class FetchRandomUser extends React.Component {
 
-constructor(props){
-  super(props);
-  this.state = {
-        loading:true,
-        person:null
+  constructor(props){
+    super(props);
+    this.state = {
+          loading: true,
+          person: null
+    }
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
-}
 
   async componentDidMount(){
     const url = 'https://api.randomuser.me/';
@@ -28,8 +30,11 @@ constructor(props){
         {this.state.loading || !this.state.person ? (
           <CircularIndeterminate/>
         ):(
-          <div>
+          <div className={classes.cardAndButton}>
             <CardOfPerson props={this.state.person}/>
+            <Button onClick={this.componentDidMount} className={classes.button} variant="contained" color="secondary">
+              Give me someone else!
+            </Button>
           </div>
         )}
       </div>

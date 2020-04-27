@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -10,6 +9,8 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import Icon from '@mdi/react';
+import { mdiChevronDown  } from '@mdi/js';
 
 import useStyles from './Style.js';
 
@@ -35,8 +36,13 @@ export default function CardOfPerson(props) {
   const yearOfBirth = sequenceOfBirth.substr(0,4);
   let monthOfBirth = sequenceOfBirth.substr(5,2);
   const dayOfBirth = sequenceOfBirth.substr(8,2);
-
   monthOfBirth = MonthInLetters(monthOfBirth);
+
+  const sequenceOfRegistry = props.props.registered.date;
+  const yearOfRegistry = sequenceOfRegistry.substr(0,4);
+  let monthOfRegistry = sequenceOfRegistry.substr(5,2);
+  const dayOfRegistry = sequenceOfRegistry.substr(8,2);
+  monthOfRegistry = MonthInLetters(monthOfRegistry);
 
   return (
     <Card className={classes.root}>
@@ -60,15 +66,10 @@ export default function CardOfPerson(props) {
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+          {props.props.location.street.number + " " + props.props.location.street.name + ", " + props.props.location.postcode + ", " + props.props.location.city + ", " + props.props.location.country}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-        </IconButton>
-        <IconButton aria-label="share">
-        </IconButton>
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -77,24 +78,20 @@ export default function CardOfPerson(props) {
           aria-expanded={expanded}
           aria-label="show more"
         >
-
+        <Icon color="#1976d2" size={1} path={mdiChevronDown} />
         </IconButton>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Method:</Typography>
+          <Typography variant="h6">Contact:</Typography>
           <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-            minutes.
+            <div>cell: {props.props.cell}</div>
+            <div>cell: {props.props.phone}</div>
+            <div>email: {props.props.email}</div>
           </Typography>
+          <Typography variant="h6">Member since:</Typography>
           <Typography paragraph>
-            Hea.......................................................................
-          </Typography>
-          <Typography paragraph>
-            Add ric...................................................................
-          </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then serve.
+            {dayOfRegistry + " " + monthOfRegistry + " " + yearOfRegistry + " (" + props.props.registered.age+ " years)"}
           </Typography>
         </CardContent>
       </Collapse>
