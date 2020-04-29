@@ -15,8 +15,7 @@ class FetchRandomUser extends React.Component {
           backgroundColor: 'red'
     }
     this.componentDidMount = this.componentDidMount.bind(this);
-    this.maleGender = this.maleGender.bind(this);
-    this.femaleGender = this.femaleGender.bind(this);
+    this.chooseGender = this.chooseGender.bind(this);
   }
 
   async componentDidMount(){
@@ -26,15 +25,9 @@ class FetchRandomUser extends React.Component {
     this.setState({person: data.results[0], loading: false});
   }
 
-  async maleGender(){
-    let url = 'https://randomuser.me/api/?gender=male';
-    const response = await fetch(url);
-    const data = await response.json();
-    this.setState({person: data.results[0], loading: false});
-  }
-
-  async femaleGender(){
-    let url = 'https://randomuser.me/api/?gender=female';
+  async chooseGender(x){
+    let url;
+    x===0 ? (url = 'https://randomuser.me/api/?gender=female'):(url = 'https://randomuser.me/api/?gender=male')
     const response = await fetch(url);
     const data = await response.json();
     this.setState({person: data.results[0], loading: false});
@@ -50,10 +43,10 @@ class FetchRandomUser extends React.Component {
           <div className={classes.cardAndButton}>
             <CardOfPerson props={this.state.person}/>
             <div className={classes.genderButtons}>
-              <Button onClick={this.femaleGender} className={classes.button} variant="contained" color="primary">
+              <Button onClick={()=>this.chooseGender(0)} className={classes.button} variant="contained" color="primary">
                 Girl
               </Button>
-              <Button onClick={this.maleGender} className={classes.button} variant="contained" color="secondary">
+              <Button onClick={()=>this.chooseGender(1)} className={classes.button} variant="contained" color="secondary">
                 Boy
               </Button>
             </div>
