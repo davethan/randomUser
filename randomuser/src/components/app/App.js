@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import HideAppBar from '../header/Header.js';
-import FetchRandomUser from '../fetchRandomUser/FetchRandomUser.js'
+import CardAndButtons from '../cardAndButtons/CardAndButtons.js'
 import styles from "./Style.js";
 import { withStyles } from '@material-ui/styles';
 
@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <div className={classes.mainPage} >
         <HideAppBar action={this.handleClickOfGender}/>
-        <FetchRandomUser gender={this.state.gender} />
+        <CardAndButtons gender={this.state.gender} />
       </div>
     );
   }

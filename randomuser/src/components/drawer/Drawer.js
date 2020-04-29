@@ -49,7 +49,7 @@ export default function SwipeableTemporaryDrawer(props) {
         {['Girl', 'Boy'].map((text, index) => (
           <ListItem onClick={()=>props.action(index)} button key={text}>
             <ListItemIcon>{index % 2 === 1 ?
-              <Icon color="secondary" size={1} path={mdiFaceOutline} /> : <Icon color="primary" size={1} path={mdiFaceWomanOutline} />}
+              <Icon color="#1976d2" size={1} path={mdiFaceOutline} /> : <Icon color="#d81b60" size={1} path={mdiFaceWomanOutline} />}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
