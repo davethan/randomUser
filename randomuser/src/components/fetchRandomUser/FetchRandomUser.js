@@ -8,18 +8,19 @@ import Button from '@material-ui/core/Button';
 class FetchRandomUser extends React.Component {
 
   constructor(props){
+    console.log(props)
     super(props);
     this.state = {
           loading: true,
           person: null,
-          backgroundColor: 'red'
+          backgroundColor: 'red',
     }
     this.componentDidMount = this.componentDidMount.bind(this);
     this.chooseGender = this.chooseGender.bind(this);
   }
 
   async componentDidMount(){
-    let url = 'https://api.randomuser.me';
+    let url = 'https://randomuser.me/api/?gender=female';
     const response = await fetch(url);
     const data = await response.json();
     this.setState({person: data.results[0], loading: false});
@@ -35,6 +36,7 @@ class FetchRandomUser extends React.Component {
 
   render(){
     const { classes } = this.props;
+    console.log(this.props);
     return(
       <div className={classes.fetchRandomUser}>
         {this.state.loading || !this.state.person ? (
@@ -43,16 +45,13 @@ class FetchRandomUser extends React.Component {
           <div className={classes.cardAndButton}>
             <CardOfPerson props={this.state.person}/>
             <div className={classes.genderButtons}>
-              <Button onClick={()=>this.chooseGender(0)} className={classes.button} variant="contained" color="primary">
-                Girl
+              <Button onClick={()=>this.chooseGender(this.props.gender)} className={classes.button} variant="contained" color="primary">
+                Nope
               </Button>
-              <Button onClick={()=>this.chooseGender(1)} className={classes.button} variant="contained" color="secondary">
-                Boy
+              <Button onClick={()=>this.chooseGender(this.props.gender)} className={classes.button} variant="contained" color="secondary">
+                Like
               </Button>
             </div>
-            <Button onClick={this.componentDidMount} className={classes.button} variant="contained" >
-              Random
-            </Button>
           </div>
         )}
       </div>

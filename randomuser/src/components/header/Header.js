@@ -8,6 +8,7 @@ import Slide from '@material-ui/core/Slide';
 import useStyles from './Style.js';
 import Icon from '@mdi/react';
 import { mdiFire } from '@mdi/js';
+import SwipeableTemporaryDrawer from '../drawer/Drawer.js';
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -27,8 +28,7 @@ HideOnScroll.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export default function HideAppBar() {
-  // console.log(props)
+export default function HideAppBar(props) {
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -36,8 +36,13 @@ export default function HideAppBar() {
       <HideOnScroll>
         <AppBar className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
+            <SwipeableTemporaryDrawer action={props.action}/>
+            <div className={classes.TitleAndLogo}>
               <h2 className={classes.h2}>Finder</h2>
               <Icon color="white" size={1} path={mdiFire} />
+            </div>
+            {/*div just to center the Finder logo*/}
+            <div className={classes.Hidden}></div>
           </Toolbar>
         </AppBar>
       </HideOnScroll>

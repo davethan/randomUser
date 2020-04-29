@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   toolbar:{
     display:'flex',
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     marginTop: 'auto',
     marginBottom: 'auto',
     minHeight:'2rem',
@@ -22,6 +22,17 @@ const useStyles = makeStyles(theme => ({
     fontSize: '1.5rem',
     margin:0,
     fontStyle: 'normal',
+  },
+  TitleAndLogo:{
+    display:'flex'
+  },
+  Hidden:{
+    width: '48px',
+    height: '24px',
+    paddingTop: '6px',
+    paddingBottom: '6px',
+    paddingRight: '8px',
+    paddingLeft: '8px',
   },
   a:{
     color:'white',

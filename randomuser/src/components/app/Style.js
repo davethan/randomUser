@@ -1,6 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(theme => ({
+const styles = () => ({
   mainPage:{
     display:'flex',
     flexDirection: 'column',
@@ -12,6 +10,6 @@ const useStyles = makeStyles(theme => ({
     textDecoration:'none',
     color:'black'
   }
-}));
+});
 
-export default useStyles
+export default styles;
