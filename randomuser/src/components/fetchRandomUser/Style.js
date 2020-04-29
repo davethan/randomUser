@@ -8,8 +8,14 @@
       display: 'flex',
       flexDirection: 'column'
     },
+    genderButtons:{
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-around'
+    },
     button:{
       maxWidth: 345,
+      marginBottom: '0.5rem'
     },
     image:{
       margin:'auto'

@@ -11,13 +11,30 @@ class FetchRandomUser extends React.Component {
     super(props);
     this.state = {
           loading: true,
-          person: null
+          person: null,
+          backgroundColor: 'red'
     }
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.maleGender = this.maleGender.bind(this);
+    this.femaleGender = this.femaleGender.bind(this);
   }
 
   async componentDidMount(){
-    const url = 'https://api.randomuser.me/';
+    let url = 'https://api.randomuser.me';
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({person: data.results[0], loading: false});
+  }
+
+  async maleGender(){
+    let url = 'https://randomuser.me/api/?gender=male';
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({person: data.results[0], loading: false});
+  }
+
+  async femaleGender(){
+    let url = 'https://randomuser.me/api/?gender=female';
     const response = await fetch(url);
     const data = await response.json();
     this.setState({person: data.results[0], loading: false});
@@ -32,8 +49,16 @@ class FetchRandomUser extends React.Component {
         ):(
           <div className={classes.cardAndButton}>
             <CardOfPerson props={this.state.person}/>
-            <Button onClick={this.componentDidMount} className={classes.button} variant="contained" color="secondary">
-              Give me someone else!
+            <div className={classes.genderButtons}>
+              <Button onClick={this.femaleGender} className={classes.button} variant="contained" color="primary">
+                Girl
+              </Button>
+              <Button onClick={this.maleGender} className={classes.button} variant="contained" color="secondary">
+                Boy
+              </Button>
+            </div>
+            <Button onClick={this.componentDidMount} className={classes.button} variant="contained" >
+              Random
             </Button>
           </div>
         )}

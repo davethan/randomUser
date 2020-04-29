@@ -22,11 +22,23 @@ function MonthInLetters(number){
   return number;
 }
 
+function createPseudorandomColor(number) {
+  var color = '#';
+  let i=0;
+  while (color.length<7) {
+    let parsed = parseInt(number[i], 10);
+    if (Number.isInteger(parsed)){
+      color += number[i];
+    }
+    i++;
+  }
+  return color;
+}
+
 
 export default function CardOfPerson(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  console.log(props.props);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -44,11 +56,13 @@ export default function CardOfPerson(props) {
   const dayOfRegistry = sequenceOfRegistry.substr(8,2);
   monthOfRegistry = MonthInLetters(monthOfRegistry);
 
+  const backgroundColor = createPseudorandomColor(props.props.cell);
+
   return (
     <Card className={classes.root}>
       <CardHeader
         avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
+          <Avatar aria-label="recipe" style={{backgroundColor: backgroundColor}} className={classes.avatar}>
             {props.props.name.first[0]}
           </Avatar>
         }

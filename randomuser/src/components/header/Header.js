@@ -6,6 +6,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import useStyles from './Style.js';
+import Icon from '@mdi/react';
+import { mdiFire } from '@mdi/js';
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -34,7 +36,8 @@ export default function HideAppBar() {
       <HideOnScroll>
         <AppBar className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
-              <h2 className={classes.h2}>Random user</h2>
+              <h2 className={classes.h2}>Finder</h2>
+              <Icon color="white" size={1} path={mdiFire} />
           </Toolbar>
         </AppBar>
       </HideOnScroll>
