@@ -6,19 +6,26 @@ import { withStyles } from '@material-ui/styles';
 
 class App extends Component {
   state = {
-    gender:0
+    gender:0,
+    nationality: 'all',
+    basedOn: 'gender'
   }
 
-  handleClickOfGender = (index) => {
-    this.setState({gender:index});
+  chooseGender = (index) => {
+    this.setState({gender:index, basedOn:'gender'});
+  }
+
+  chooseNationality = (index) => {
+    const abbreviations = ['all', 'au', 'br', 'ca', 'de', 'fi', 'fr', 'gb', 'ir', 'ie', 'dk', 'nl', 'nz', 'no', 'es', 'ch', 'tr', 'us'];
+    this.setState({nationality:abbreviations[index], basedOn:'nationality'});
   }
 
   render(){
     const { classes } = this.props;
     return (
       <div className={classes.mainPage} >
-        <HideAppBar action={this.handleClickOfGender}/>
-        <CardAndButtons gender={this.state.gender} />
+        <HideAppBar chooseGender={this.chooseGender} chooseNationality={this.chooseNationality}/>
+        <CardAndButtons props={this.state} />
       </div>
     );
   }

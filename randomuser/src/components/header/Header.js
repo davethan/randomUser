@@ -36,13 +36,9 @@ export default function HideAppBar(props) {
       <HideOnScroll>
         <AppBar className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
-            <SwipeableTemporaryDrawer action={props.action}/>
-            <div className={classes.TitleAndLogo}>
-              <h2 className={classes.h2}>Finder</h2>
-              <Icon color="white" size={1} path={mdiFire} />
-            </div>
-            {/*div just to center the Finder logo*/}
-            <div className={classes.Hidden}></div>
+            <SwipeableTemporaryDrawer chooseGender={props.chooseGender} chooseNationality={props.chooseNationality}/>
+            <h2 className={classes.h2}>Finder</h2>
+            <div className={classes.logo}><Icon color="white" size={1} path={mdiFire} /></div>
           </Toolbar>
         </AppBar>
       </HideOnScroll>

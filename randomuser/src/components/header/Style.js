@@ -23,41 +23,10 @@ const useStyles = makeStyles(theme => ({
     margin:0,
     fontStyle: 'normal',
   },
-  TitleAndLogo:{
-    display:'flex'
-  },
-  Hidden:{
+  logo:{
     width: '48px',
-    height: '24px',
-    paddingTop: '6px',
-    paddingBottom: '6px',
-    paddingRight: '8px',
-    paddingLeft: '8px',
+    margin: '6px'
   },
-  a:{
-    color:'white',
-    textDecoration:'none',
-  },
-  link:{
-    textTransform:'none',
-    textDecoration:'none',
-    color:'white'
-  }
-  // '@font-face':{
-  //     fontFamily: 'billabongregular',
-  //     src: 'url(https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot)',
-  //     fallbacks:[
-  //       {src: 'url(https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot?#iefix) format(embedded-opentype)'},
-  //       {src: 'url(https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.woff) format(woff)'},
-  //       {src: 'url(https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.ttf) format(truetype)'},
-  //       {src: 'url(https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.svg#billabongregular) format(svg)'},
-  //   ]},
-//   '@font-face':{
-//       fontFamily: 'billabongregular',
-//       src: 'url(https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot)',
-//       fallbacks:
-//         {src: 'url(https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.eot?#iefix) format(embedded-opentype) url(https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.woff) format(woff), url(https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.ttf) format(truetype), url(https://cdn.rawgit.com/milktronics/beaglegr.am/master/public/fonts/billabong-webfont.svg#billabongregular) format(svg)'},
-//     },
 }));
 
 export default useStyles

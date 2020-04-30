@@ -12,6 +12,8 @@ import Icon from '@mdi/react';
 import { mdiMenu } from '@mdi/js';
 import { mdiFaceOutline } from '@mdi/js';
 import { mdiFaceWomanOutline } from '@mdi/js';
+import { mdiGift } from '@mdi/js';
+import { mdiMap } from '@mdi/js';
 
 const useStyles = makeStyles({
   list: {
@@ -46,8 +48,17 @@ export default function SwipeableTemporaryDrawer(props) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['Girl', 'Boy'].map((text, index) => (
-          <ListItem onClick={()=>props.action(index)} button key={text}>
+        <ListItem button>
+          <ListItemIcon>
+            <Icon color="#1976d2" size={1} path={mdiGift} />
+          </ListItemIcon>
+          <ListItemText primary={'Upgrade to Finder premium'} />
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        {['Girls', 'Boys'].map((text, index) => (
+          <ListItem onClick={()=>props.chooseGender(index)} button key={text}>
             <ListItemIcon>{index % 2 === 1 ?
               <Icon color="#1976d2" size={1} path={mdiFaceOutline} /> : <Icon color="#d81b60" size={1} path={mdiFaceWomanOutline} />}
             </ListItemIcon>
@@ -55,16 +66,20 @@ export default function SwipeableTemporaryDrawer(props) {
           </ListItem>
         ))}
       </List>
-      {/*
       <Divider />
       <List>
-        {['AU', 'BR', 'CA', 'CH', 'DE', 'DK', 'ES', 'FI', 'FR', 'GB', 'IE', 'IR', 'NO', 'NL', 'NZ', 'TR', 'US'].map((text, index) => (
-          <ListItem button key={text}>
+      <ListItem onClick={()=>props.chooseNationality(0)} button>
+        <ListItemIcon>
+          <Icon color="#1976d2" size={1} path={mdiMap} />
+        </ListItemIcon>
+        <ListItemText primary={'All'} />
+      </ListItem>
+        {['Australia', 'Brazil', 'Canada', 'Germany', 'Finland', 'France', 'Great Britain', 'Iran', 'Ireland', 'Korea', 'Netherlands', 'New Zealand', 'Norway', 'Spain', 'Switzerland', 'Turkey', 'United States'].map((text, index) => (
+          <ListItem onClick={()=>props.chooseNationality(index+1)} button key={text}>
             <ListItemText primary={text} />
           </ListItem>
         ))}
       </List>
-      */}
     </div>
   );
 
