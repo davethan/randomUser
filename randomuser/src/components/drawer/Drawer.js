@@ -52,12 +52,12 @@ export default function SwipeableTemporaryDrawer(props) {
           <ListItemIcon>
             <Icon color="#1976d2" size={1} path={mdiGift} />
           </ListItemIcon>
-          <ListItemText primary={'Upgrade to Finder premium'} />
+          <ListItemText primary={'Upgrade to premium'} />
         </ListItem>
       </List>
       <Divider />
       <List>
-        {['Girls', 'Boys'].map((text, index) => (
+        {['Women', 'Men'].map((text, index) => (
           <ListItem onClick={()=>props.chooseGender(index)} button key={text}>
             <ListItemIcon>{index % 2 === 1 ?
               <Icon color="#1976d2" size={1} path={mdiFaceOutline} /> : <Icon color="#d81b60" size={1} path={mdiFaceWomanOutline} />}

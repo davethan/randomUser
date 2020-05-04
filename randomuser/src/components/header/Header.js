@@ -7,7 +7,7 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import useStyles from './Style.js';
 import Icon from '@mdi/react';
-import { mdiFire } from '@mdi/js';
+import { mdiDramaMasks } from '@mdi/js';
 import SwipeableTemporaryDrawer from '../drawer/Drawer.js';
 
 function HideOnScroll(props) {
@@ -37,8 +37,8 @@ export default function HideAppBar(props) {
         <AppBar className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
             <SwipeableTemporaryDrawer chooseGender={props.chooseGender} chooseNationality={props.chooseNationality}/>
-            <h2 className={classes.h2}>Finder</h2>
-            <div className={classes.logo}><Icon color="white" size={1} path={mdiFire} /></div>
+            <h2 className={classes.h2}>Mr. Random</h2>
+            <div className={classes.logo}><Icon color="white" size={1} path={mdiDramaMasks} /></div>
           </Toolbar>
         </AppBar>
       </HideOnScroll>

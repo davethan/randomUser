@@ -5,8 +5,7 @@ import { withStyles } from '@material-ui/styles';
 import CardOfPerson from '../cardOfPerson/CardOfPerson';
 import Button from '@material-ui/core/Button';
 import Icon from '@mdi/react';
-import { mdiCardsHeart } from '@mdi/js';
-import { mdiHeartBroken } from '@mdi/js';
+import { mdiArrowRightBold } from '@mdi/js';
 
 class CardAndButtons extends React.Component {
 
@@ -68,19 +67,13 @@ class CardAndButtons extends React.Component {
               { this.props.props.basedOn === 'gender' ?
                 (<React.Fragment>
                 <Button onClick={()=>this.chooseGender(this.props.props.gender)} className={classes.button} variant="contained" color="primary">
-                  <Icon color="white" size={1} path={mdiHeartBroken} />
-                </Button>
-                <Button onClick={()=>this.chooseGender(this.props.props.gender)} className={classes.button} variant="contained" color="secondary">
-                  <Icon color="white" size={1} path={mdiCardsHeart} />
+                  <Icon color="white" size={1} path={mdiArrowRightBold} />
                 </Button>
                 </React.Fragment>):
 
                 (<React.Fragment>
                 <Button onClick={()=>this.chooseNationality(this.props.props.nationality)} className={classes.button} variant="contained" color="primary">
-                  <Icon color="white" size={1} path={mdiHeartBroken} />
-                </Button>
-                <Button onClick={()=>this.chooseNationality(this.props.props.nationality)} className={classes.button} variant="contained" color="secondary">
-                  <Icon color="white" size={1} path={mdiCardsHeart} />
+                  <Icon color="white" size={1} path={mdiArrowRightBold} />
                 </Button>
                 </React.Fragment>)
               }

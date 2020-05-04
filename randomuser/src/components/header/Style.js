@@ -25,7 +25,9 @@ const useStyles = makeStyles(theme => ({
   },
   logo:{
     width: '48px',
-    margin: '6px'
+    margin: '6px',
+    display:'flex',
+    justifyContent: 'center'
   },
 }));
 
