@@ -1,5 +1,6 @@
 # randomUser
 Preview Here! -> https://github.com/davethan/randomUser/blob/master/MrRandom.gif
+and here! -> https://github.com/davethan/randomUser
 
 Visualizing stream of data taken from https://api.randomuser.me/
 
