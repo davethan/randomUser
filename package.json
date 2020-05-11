@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/davethan/randomUser/issues"
   },
-  "homepage": "https://github.com/davethan/randomUser#readme"
+  "homepage": "https://github.com/davethan/randomUser#readme",
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
+  }
 }
