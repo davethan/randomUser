@@ -1,6 +1,12 @@
 # randomUser
 Visualizing stream of data taken from https://api.randomuser.me/
 
+### Previews
+
+Published: https://davethan.github.io/randomUser/
+
+Gif: https://github.com/davethan/randomUser/blob/master/MrRandom.gif
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
